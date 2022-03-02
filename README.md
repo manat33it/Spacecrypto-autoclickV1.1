@@ -22,11 +22,11 @@ Automatic Login metamask
 สามารถเว้นว่างได้โดยการ กด Enter ข้ามไป แต่จะไม่สามารถใช้งาน Function นี้ได้
 
 
-Return Lobby time
+Please enter your spaceship amount you need to send for fightboss
 
 
-2. จะมีช่อง Return lobby ให้ใส่เป็นตัว เลข 11-15 ขึ้นอยู่ว่ายานส่วนใหญ่ของคุณเป็น Tier ไหน หาก Common แค่ 15ลำให้ใส่แค่ 12 แต่ถ้าหากมี common
-15 ก็คือ 30ลำ ขึ้นไปให้ใส่แค่ 10-11 นาทีเท่านั้น
+2. จะมีช่อง Please enter your spaceship amount you need to send for fightboss ให้ใส่ตัวเลขเท่านั้น
+ใส่ตัวเลข จำนวนยานที่เราจะ ส่งไปสู้กับบอส สมมุติใส่ 5 ก็จะ ส่งยาน 5 ลำไปสู้กลับบอส พอกระสุนหมดก็จะกลับมาหน้า lobby แล้วก็ ส่งอีก 5 ลำ ไปสู้ต่อวนไปเรื่อยๆ
 
 
 #บอทเป็นออโต้คลิกจะดึงเมาส์

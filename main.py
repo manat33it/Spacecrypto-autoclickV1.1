@@ -9,18 +9,19 @@ print("Donate: 087-389088-6 Kbank | Thank you. :)")
 print("============================================")
 print("1. Please enter your Metamask password.!")
 User_Password = getpass.getpass("Password: ")
-print("2. Please enter your Return to Lobby time (minutes)!!")
-Return_times = int(input("Return Time: "))
+# print("2. Please enter your Return to Lobby time (minutes)!!")
+# Return_times = int(input("Return Time: "))
+print("2. Please enter your spaceship amount you need to send for fightboss")
+space_amountsend = int(input("spaceship amount: "))
+space_amountsend = space_amountsend +1
 print("============================================")
 
 for i in range(3, 0, -1):
-    print("=> [INFO]Bot-Starting: ", i)
+    print("=> [INFO] : Bot-Starting: ", i)
     time.sleep(1)
-print("=> [INFO]Complete Loading!")
+print("=> [INFO] : Complete Loading!")
 print("============================================")
 time.sleep(3)
-
-
 
 def Lobby_ReturnFunc():
         Lobby_Return = pyautogui.locateOnScreen('images/Lobby_return.png')
@@ -29,14 +30,14 @@ def Lobby_ReturnFunc():
         elif Lobby_Return != None:
             pyautogui.moveTo(Lobby_Return)
             pyautogui.leftClick()
-            print("=> [SC][INFO] : Return to Lobby")
+            print("=> [INFO] : Return to Lobby")
             print("============================================")
             time.sleep(5)
             
         else:
             return
 
-schedule.every(Return_times).minutes.do(Lobby_ReturnFunc)
+# schedule.every(Return_times).minutes.do(Lobby_ReturnFunc)
 
 
 def is_onready():
@@ -50,7 +51,7 @@ def is_onready():
         elif Bomb_connect != None:
             pyautogui.moveTo(Bomb_connect)
             pyautogui.leftClick()
-            print("=> [BC][INFO]BombCrypto Connecting..!")
+            print("=> [INFO] BombCrypto Connecting..!")
             time.sleep(2)
         else:
             return
@@ -59,7 +60,7 @@ def is_onready():
     def Metamask_Password_Unlock():
         Password_Unlock = pyautogui.locateOnScreen('images/Password_Unlock.png')
         Password_Unlock_TH = pyautogui.locateOnScreen('images/Password_Unlock_TH.png')
-        print("=> [INFO]Entering Password...")
+        print("=> [INFO] Entering Password...")
         pyautogui.write(User_Password, interval= 0.15)
 
         if Password_Unlock != None:
@@ -82,7 +83,7 @@ def is_onready():
             return
 
     def Metamask_Password_Check():
-        Password_1_Check = pyautogui.locateOnScreen('images/Password.png')
+        Password_1_Check = pyautogui.locateOnScreen('images/Password.png', confidence=0.8)
         Password_Unlock_Check = pyautogui.locateOnScreen('images/Password_Unlock.png')
         Password_Unlock_TH_Check = pyautogui.locateOnScreen('images/Password_Unlock_TH.png')
 
@@ -113,7 +114,7 @@ def is_onready():
             time.sleep(0.5)
             pyautogui.moveTo(Connect_Wallet)
             pyautogui.leftClick()
-            print("=> [SC]Starting Connect (Metamask) !!")
+            print("=> Starting Connect (Metamask) !!")
         elif Connect_Wallet == None:
             return
         else:
@@ -137,15 +138,31 @@ def is_onready():
             time.sleep(0.5)
             pyautogui.moveTo(Sign_eng_button)
             pyautogui.leftClick()
-            print("=> [INFO]Metamask Logged in !!")
+            print("=> Metamask Logged in !!")
         elif Sign_eng_button == None:
             return
         elif Sign_th_button != None:
             time.sleep(0.5)
             pyautogui.moveTo(Sign_th_button)
             pyautogui.leftClick()
-            print("=> [INFO]Metamask Logged in !!")
+            print("=> Metamask Logged in !!")
         elif Sign_th_button == None:
+            return
+        else:
+            return
+
+    def Metamask_Notification_w_b():
+        Metamask_Notification_b = pyautogui.locateOnScreen('images/Metamask_notification_b.png', confidence=0.8)
+        etamask_Notification_w = pyautogui.locateOnScreen('images/Metamask_notification_w.png', confidence=0.8)
+        if Metamask_Notification_b != None:
+            pyautogui.moveTo(Metamask_Notification_b)
+            pyautogui.leftClick()
+        elif Metamask_Notification_b == None:
+            return
+        elif etamask_Notification_w != None:
+            pyautogui.moveTo(etamask_Notification_w)
+            pyautogui.leftClick()
+        elif etamask_Notification_w == None:
             return
         else:
             return
@@ -153,7 +170,7 @@ def is_onready():
     def _Play_SpaceCryptoFunc():
         Play_SpaceCrypto = pyautogui.locateOnScreen('images/Play_SpaceCrypto.png', confidence=0.6)
         if Play_SpaceCrypto != None:
-            print("=> [SC]Starting SpaceCrypto...")
+            print("=> Starting SpaceCrypto...")
             time.sleep(0.5)
             pyautogui.moveTo(Play_SpaceCrypto)
             pyautogui.leftClick()
@@ -168,7 +185,7 @@ def is_onready():
         if Fight_Boss_Button != None:
             pyautogui.moveTo(Fight_Boss_Button)
             pyautogui.leftClick()
-            print("=> [SC][INFO] : Fighting Boss...")
+            print("=> [INFO] : Fighting Boss...")
 
         elif Fight_Boss_Button == None:
             return
@@ -178,34 +195,69 @@ def is_onready():
     def Spaceship_sendFunc():
         Red_fight_Button = pyautogui.locateOnScreen('images/Red_fight_Button.png')
         
-        while True:
-            if Red_fight_Button == None:
-                return
-            elif Red_fight_Button != None:
-                print("=> [SC][INFO] : Sending Spaceship..")
-                pyautogui.moveTo(Red_fight_Button)
-                pyautogui.leftClick()
-                return Spaceship_sendFunc()
-            else:
-                return
+        # while True:
+        #     if Red_fight_Button == None:
+        #         return
+        #     elif Red_fight_Button != None:
+        #         print("=> [INFO] : Sending Spaceship..")
+        #         pyautogui.moveTo(Red_fight_Button)
+        #         pyautogui.leftClick()
+        #         return Spaceship_sendFunc()
+        #     else:
+        #         return
+        if Red_fight_Button == None:
+            return
 
-    def Spaceship_Check():
-        Full_team = pyautogui.locateOnScreen('images/Full_team.png')
+        elif Red_fight_Button != None:
+            space_count = 1
+            while True:
+                if space_count < space_amountsend:
+                    if Red_fight_Button == None:
+                        break
+                    elif Red_fight_Button != None:
+                        pyautogui.click(Red_fight_Button)
+                        space_count = space_count +1
+                        time.sleep(0.5)
 
-        if Full_team == None:
+                if space_count == space_amountsend:
+                    # space_count = space_count -1
+                    # print("=> [INFO] : Spaceship in battle {0} Now!".format(space_count))
+
+                    Spaceship_fightbossFunc()
+                    break
+        else:
+            return
+        
+    def All_out_of_ammo():
+        All_out_of_ammo = pyautogui.locateOnScreen('images/All_out_of_ammo.png', confidence=0.95)
+        
+        if All_out_of_ammo == None:
+            return
+        elif All_out_of_ammo != None:
             
-            Spaceship_sendFunc()
-
-        elif Full_team != None:
-            
-            Spaceship_fightbossFunc()
+            print("=> [INFO] : Spaceship out of ammo!")
+            Lobby_ReturnFunc()
 
         else:
             return
+                    
+    # def Spaceship_Check():
+    #     Full_team = pyautogui.locateOnScreen('images/Full_team.png')
+
+    #     if Full_team == None:
+            
+    #         return
+
+    #     elif Full_team != None:
+            
+    #         Spaceship_fightbossFunc()
+
+    #     else:
+    #         return
 
     def is_VictoryFunc():
-        Victory_popup = pyautogui.locateOnScreen('images/Victory_popup.png')
-        Victory_Confirm = pyautogui.locateOnScreen('images/Victory_confirm.png')
+        Victory_popup = pyautogui.locateOnScreen('images/Victory_popup.png', confidence=0.8)
+        Victory_Confirm = pyautogui.locateOnScreen('images/Victory_confirm.png', confidence=0.8)
 
         if Victory_popup == None:
             return
@@ -215,8 +267,7 @@ def is_onready():
 
                 pyautogui.moveTo(Victory_Confirm)
                 pyautogui.leftClick()
-                print("=> [SC][INFO] : Victory")
-                time.sleep(2)
+                print("=> [INFO] : Victory")
 
             elif Victory_Confirm == None:
                 return
@@ -226,8 +277,8 @@ def is_onready():
             return
 
     def is_DefeatFunc():
-        Defeat_popup = pyautogui.locateOnScreen('images/Defeat_popup.png')
-        Defeat_Confirm = pyautogui.locateOnScreen('images/Defeat_confirm.png')
+        Defeat_popup = pyautogui.locateOnScreen('images/Defeat_popup.png', confidence=0.8)
+        Defeat_Confirm = pyautogui.locateOnScreen('images/Defeat_confirm.png', confidence=0.8)
 
         if Defeat_popup == None:
             return
@@ -237,8 +288,7 @@ def is_onready():
 
                 pyautogui.moveTo(Defeat_Confirm)
                 pyautogui.leftClick()
-                print("=> [SC][INFO] : Defeat")
-                time.sleep(2)
+                print("=> [INFO] : Defeat")
 
             elif Defeat_Confirm == None:
                 return
@@ -256,11 +306,16 @@ def is_onready():
 
         elif Login_Failed_popup != None:
             time.sleep(0.5)
-            print("=> [SC][WARNING]: Login Failed")
+            print("=> [WARNING] : Login Failed")
 
             if OK_Button != None:
                 pyautogui.moveTo(OK_Button)
                 pyautogui.leftClick()
+                time.sleep(5)
+                pyautogui.keyDown('ctrl')
+                pyautogui.press('f5')
+                pyautogui.keyUp('ctrl')
+                print("=> [INFO] : Refreshing...")
             
             elif OK_Button == None:
                 return
@@ -278,7 +333,7 @@ def is_onready():
 
         elif Error_popup != None:
             time.sleep(0.5)
-            print("=> [SC][WARNING]: Error Exception")
+            print("=> [WARNING] : Error Exception")
 
             if Close_Button != None:
                 pyautogui.moveTo(Close_Button)
@@ -287,7 +342,7 @@ def is_onready():
                 pyautogui.keyDown('ctrl')
                 pyautogui.press('f5')
                 pyautogui.keyUp('ctrl')
-                print("=> [SC][INFO] : Refreshing...")
+                print("=> [INFO] : Refreshing...")
 
                 return
             elif Close_Button == None:
@@ -312,10 +367,14 @@ def is_onready():
         Metamask_Password_Check() #2
 
         Metamask_Notification() #3
+        Metamask_Notification_w_b()
         
         _Play_SpaceCryptoFunc() #4 Start
         
-        Spaceship_Check() #5 Spaceship check for sending and fight boss
+        Spaceship_sendFunc() #5 Spaceship check for sending and fight boss
+        # Spaceship_Check()
+
+        All_out_of_ammo() #6 Check ammo 0/15
         
         is_VictoryFunc() #Victory Check
         
@@ -325,7 +384,7 @@ def is_onready():
         
         Error_ExceptionFunc() # Error Exception Check
         
-        schedule.run_pending()
+        # schedule.run_pending()
 
 
     if __name__ == "__main__":
